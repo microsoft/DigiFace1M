@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DigiFace-1M</title>
+    <link rel="shortcut icon" type="image/jpg" href="img/favicon.ico" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script src="https://kit.fontawesome.com/49f46e7382.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="container is-max-desktop">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="https://www.microsoft.com/en-us/research/lab/mixed-reality-ai-lab-cambridge/">
+                    <img src="img/Microsoft-logo.svg" alt="Mixed Reality & AI Lab – Cambridge" style="height: 1.4rem;">
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="https://www.microsoft.com/en-us/research/lab/mixed-reality-ai-lab-cambridge/">
+                        Mixed Reality & AI
+                    </a>
+                </div>
+                <div class="navbar-end">
+                    <a class="navbar-item" href="https://wacv2023.thecvf.com/">
+                        <img class="is-hidden-touch" src="img/wacv-logo-light.png" style="height: 100%;" alt="WACV 2023">
+                        <img class="is-hidden-desktop" src="img/wacv-logo-dark.png" style="height: 100%;" alt="WACV 2023">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <h1 class="title is-2 is-size-3-mobile is-spaced has-text-centered">
+                DigiFace-1M: 1 Million Digital Face Images for Face Recognition
+            </h1>
+            <p class="subtitle is-5 has-text-centered has-text-grey">
+                Winter Conference on<br class="is-hidden-tablet"> Applications of Computer Vision 2023
+            </p>
+            <p class="subtitle is-6 has-text-centered authors mt-5" style="line-height: 1.5;">
+
+                <span>
+                    <a href="mailto:gb585@cam.ac.uk">Gwangbin&nbsp;Bae</a>
+                </span>
+                <span>
+                    <a href="mailto:martin.delagorce@microsoft.com">Martin&nbsp;de&nbsp;la&nbsp;Gorce</a>
+                </span>
+                <span>
+                    <a href="mailto:tabaltru@microsoft.com">Tadas&nbsp;Baltrušaitis</a>
+                </span>
+                <span>
+                    <a href="https://chewitt.me/">Charlie&nbsp;Hewitt</a>
+                </span>
+                <span>
+                    <a href="mailto:doch@microsoft.com">Dong&nbsp;Chen</a>
+                </span>
+                <span>
+                    <a href="mailto:juvalen@microsoft.com">Julien&nbsp;Valentin</a>
+                </span>
+                <span>
+                    <a href="mailto:rc10001@cam.ac.uk">Roberto&nbsp;Cipolla</a>
+                </span>
+                <span>
+                    <a href="mailto:jinshen@microsoft.com">Jingjing&nbsp;Shen</a>
+                </span>
+            </p>
+        </div>
+        <div class="container is-max-desktop has-text-centered mt-5">
+            <a class="button is-rounded is-link is-light mr-2" disabled>
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+            </a>
+            <a class="button is-rounded is-link is-light mr-2" disabled>
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+            </a>
+            <a href="https://github.com/microsoft/DigiFace1M" class="button is-rounded is-link is-light">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Dataset</span>
+            </a>
+        </div>
+    </section>
+    <section>
+        <div class="container is-max-desktop">
+            <figure class="image">
+                <img src="img/sx-data.jpg" />
+            </figure>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                Abstract
+            </h1>
+            <div class="content has-text-justified-desktop">
+                State-of-the-art face recognition models show impressive accuracy, achieving over 99.8% on Labeled Faces in the Wild (LFW) dataset.
+                However, these models are trained on large-scale datasets that contain millions of real human face images collected from the internet.
+                Web-crawled face images are severely biased (in terms of race, lighting, make-up, etc) and often contain labeling noise.
+                Most importantly, these face images are collected without explicit consent, raising more pressing privacy and ethical concerns.
+                To avoid the problems associated with real face datasets, we introduce a large-scale synthetic dataset for face recognition, obtained by photo-realistic rendering of diverse and high-quality digital faces using a computer graphics pipeline.
+                We compare our method to SynFace, a recent method trained on GAN-generated synthetic faces, and reduce the error rate on LFW by 52.5% (accuracy from 91.93% to 96.17%).
+                We first demonstrate that aggressive data augmentation can significantly help reduce the domain-gap between our synthetic faces and real face images.
+                Taking advantage of having full control over the rendering pipeline, we also study how each attribute (e.g., variation in facial pose, accessories, and textures) affects the accuracy.
+                Finally, by fine-tuning the network on a smaller number of real face images that could reasonably be obtained with consent, we achieve accuracy that is comparable to the methods trained on millions of real face images, while alleviating the problems associated with large datasets.
+            </div>
+        </div>
+    </section>
+    <section class="section pt-0">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                Method
+            </h1>
+            <div class="content has-text-justified-desktop">
+                <p>
+                    We build on the synthetic face generation framework of <i><a href="https://microsoft.github.io/FaceSynthetics/">Wood et al.</a></i> to create a dataset of <b>over one million</b> synthetic face images.
+                    This synthetics dataset helps us to overcome three primary shortcomings of existing large-scale face recognition datasets:
+                </p>
+                <ul>
+                    <li>
+                        <b>Ethical issues</b> -
+                        Many existing are obtained by crawling web images without consent.
+                        Our synthetic data is generated using high quality head scans obtained from a small number of individuals <i>with consent</i>.
+                    </li>
+                    <li>
+                        <b>Labeling noise</b> -
+                        Web images collected by searching the names of celebrities often contain errors.
+                        Our synthetic data has <i>guaranteed correctness of labels</i>.
+                    </li>
+                    <li>
+                        <b>Data bias</b> -
+                        Face recognition models are generally trained and tested on celebrity faces, many of which are taken with strong lighting and make-up, and are typically racially biased.
+                        Our synthetic data pipeline allows us to control the distribution of the data and ensure a <i>fair</i> dataset.
+                    </li>
+                </ul>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <img src="img/diversity.png" />
+                    <p>
+                        We vary texture, geometry, hair style, accessories and environment independently, allowing us to generate a wide variety of appearances.
+                    </p>
+                </div>
+                <div class="column">
+                    <img src="img/variation_for_one.png" />
+                    <p>
+                        For the same individual we can generate visually highly diverse imagery.
+                    </p>
+                </div>
+            </div>
+            <div class="content has-text-justified-desktop">
+                <p>
+                    The dataset is split into two parts:
+                    <ul>
+                        <li>720K images with 10K identities (72 images per identity). For each identity, 4 different sets of accessories are sampled and 18 images are rendered for each set.</li>
+                        <li>500K images with 100K identities (5 images per identity). For each identity, only one set of accessories is sampled.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section pt-0">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                Results
+            </h1>
+            <div class="content has-text-justified-desktop is-hidden-mobile">
+                <p>
+                    TODO: outperforming SOTA
+                </p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>#images</th>
+                            <th>LFW</th>
+                            <th>CFP-FP</th>
+                            <th>CPLFW</th>
+                            <th>AgeDB</th>
+                            <th>CALFW</th>
+                            <th>Avg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="https://arxiv.org/abs/2108.07960">SynFace</a></td>
+                            <td>500K (10Kx50)</span></td>
+                            <td>91.93</td>
+                            <td>75.03</td>
+                            <td>70.43</td>
+                            <td>61.63</td>
+                            <td>74.73</td>
+                            <td>74.75</td>
+                        </tr>
+                        <tr>
+                            <td>Ours</td>
+                            <td>500K (10Kx50)</span></td>
+                            <td>95.40</td>
+                            <td>87.40</td>
+                            <td>78.87</td>
+                            <td>76.97</td>
+                            <td>78.62</td>
+                            <td>83.45</td>
+                        </tr>
+                        <tr class="is-selected">
+                            <td>Ours</td>
+                            <td>1.22M (10Kx72+100Kx5)</span></td>
+                            <td>95.82</td>
+                            <td>88.77</td>
+                            <td>81.62</td>
+                            <td>79.72</td>
+                            <td>80.70</td>
+                            <td>85.32</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    TODO: not as good a real
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section pt-0">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                BibTeX
+            </h1>
+            <pre>
+@misc{TODO,
+    TODO: citation
+}
+</pre>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                Work conducted at the <br class="is-hidden-tablet"><a href=https://www.microsoft.com/en-us/research/lab/mixed-reality-ai-lab-cambridge>Mixed Reality & AI Lab &ndash; Cambridge</a>.<br/>
+                <img src="img/Microsoft-logo-only.svg" class="mt-5" alt="Mixed Reality & AI Lab – Cambridge" style="height: 2rem;">
+            </p>
+        </div>
+    </footer>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+        }
+    });
+</script>
+
+</html>
