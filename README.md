@@ -1,3 +1,5 @@
+![Dataset Preview](docs/img/sx-data.jpg)
+
 # DigiFace-1M Dataset
 
 The DigiFace-1M dataset is a collection of over one million diverse synthetic face images for face recognition.
