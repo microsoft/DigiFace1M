@@ -10,7 +10,7 @@ The dataset contains:
 - 720K images with 10K identities (72 images per identity). For each identity, 4 different sets of accessories are sampled and 18 images are rendered for each set.
 - 500K images with 100K identities (5 images per identity). For each identity, only one set of accessories is sampled.
 
-TODO: intro/dataset info
+TODO: dataset access/usage info
 
 ## Disclaimer
 
