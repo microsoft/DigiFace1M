@@ -1,33 +1,32 @@
-# Project
+![Dataset Preview](docs/img/sx-data.jpg)
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+# DigiFace-1M Dataset
 
-As the maintainer of this project, please make a few updates:
+The DigiFace-1M dataset is a collection of over one million diverse synthetic face images for face recognition.
+It was introduced in our paper [DigiFace-1M: 1 Million Digital Face Images for Face Recognition](https://microsoft.github.com/DigiFace1M).
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+The dataset contains:
 
-## Contributing
+- 720K images with 10K identities (72 images per identity). For each identity, 4 different sets of accessories are sampled and 18 images are rendered for each set.
+- 500K images with 100K identities (5 images per identity). For each identity, only one set of accessories is sampled.
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+TODO: dataset access/usage info
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+## Disclaimer
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+Some of our rendered faces may be close in appearance to the faces of real people.
+Any such similarity is naturally unintentional, as it would be in a dataset of real images, where people may appear similar to others unknown to them.
 
-## Trademarks
+## Citation
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+If you use the DigiFace-1M dataset in your work, please cite the following [paper](TODO:url):
+
+```
+@inproceedings{bae2023digiface1m,
+  title={DigiFace-1M: 1 Million Digital Face Images for Face Recognition},
+  author={Bae, Gwangbin and de la Gorce, Martin and Baltru{\v{s}}aitis, Tadas and Hewitt, Charlie and Chen, Dong and Valentin, Julien and Cipolla, Roberto and Shen, Jingjing},
+  booktitle={2023 IEEE Winter Conference on Applications of Computer Vision (WACV)},
+  year={2023},
+  organization={IEEE}
+}
+```
