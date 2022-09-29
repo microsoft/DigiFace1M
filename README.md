@@ -15,11 +15,19 @@ The DigiFace-1M dataset can be used for **non-commercial** research, and is lice
 
 ## Downloading The Dataset
 
-TODO
+For convenience the dataset is split into 8 parts which can be downloaded here: 72 images per identity [P1](https://facesyntheticspubwedata.blob.core.windows.net/wacv-2023/subjects_0-1999_72_imgs.zip), [P2](https://facesyntheticspubwedata.blob.core.windows.net/wacv-2023/subjects_2000-3999_72_imgs.zip), [P3](https://facesyntheticspubwedata.blob.core.windows.net/wacv-2023/subjects_4000-5999_72_imgs.zip), [P4](https://facesyntheticspubwedata.blob.core.windows.net/wacv-2023/subjects_6000-7999_72_imgs.zip), [P5](https://facesyntheticspubwedata.blob.core.windows.net/wacv-2023/subjects_8000-9999_72_imgs.zip); 5 images per identity , [P1](https://facesyntheticspubwedata.blob.core.windows.net/wacv-2023/subjects_100000-133332_5_imgs.zip), [P2](https://facesyntheticspubwedata.blob.core.windows.net/wacv-2023/subjects_133333-166665_5_imgs.zip), [P3](https://facesyntheticspubwedata.blob.core.windows.net/wacv-2023/subjects_166666-199998_5_imgs.zip)
 
 ## Dataset Layout
 
-TODO
+The DigiFace-1M Dataset contains cropped color imagesin the following layout.
+
+```
+subj_id_n
+├── 0.png                 # First rendered image of subject subj_id_n
+├── 1.png                 # Second rendered image of subject subj_id_n
+...
+├── k.png                 # k+1 rendered image of subject subj_id_n
+```
 
 ## Disclaimer
 
