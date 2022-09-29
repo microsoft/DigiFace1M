@@ -94,7 +94,8 @@
     <section>
         <div class="container is-max-desktop">
             <figure class="image">
-                <img src="img/sx-data.jpg" />
+                <img src="img/sx-data.jpg" class="is-hidden-mobile"/>
+                <img src="img/sx-data-narrow.jpg" class="is-hidden-tablet" />
             </figure>
         </div>
     </section>
@@ -119,18 +120,18 @@
     <section class="section pt-0">
         <div class="container is-max-desktop">
             <h1 class="title is-4">
-                Method
+                Motivation
             </h1>
             <div class="content has-text-justified-desktop">
                 <p>
-                    We build on the synthetic face generation framework of <i><a href="https://microsoft.github.io/FaceSynthetics/">Wood et al.</a></i> to create a dataset of <b>over one million</b> synthetic face images.
-                    This synthetics dataset helps us to overcome three primary shortcomings of existing large-scale face recognition datasets:
+                    State-of-the-art face recognition models are trained on millions of real human face images collected from the internet.
+                    <b>DigiFace-1M</b> aims to tackle three major problems associated with such large-scale face recognition datasets.
                 </p>
                 <ul>
                     <li>
                         <b>Ethical issues</b> -
-                        Many existing are obtained by crawling web images without consent.
-                        Our synthetic data is generated using high quality head scans obtained from a small number of individuals <i>with consent</i>.
+                        Many existing datasets are obtained by collecting web images without explicit consent.
+                        Our digital faces are created using a generative model built from high quality head scans of a small number of individuals <i>obtained with consent</i>.
                     </li>
                     <li>
                         <b>Labeling noise</b> -
@@ -139,28 +140,69 @@
                     </li>
                     <li>
                         <b>Data bias</b> -
-                        Face recognition models are generally trained and tested on celebrity faces, many of which are taken with strong lighting and make-up, and are typically racially biased.
-                        Our synthetic data pipeline allows us to control the distribution of the data and ensure a <i>fair</i> dataset.
+                        Face recognition models are generally trained and tested on celebrity faces, many of which are taken with strong lighting and make-up.
+                        They also have imbalanced racial distribution.
+                        Our synthetic data generation pipeline allows us to control the distribution of the data and ensure a <i>fair</i> dataset.
                     </li>
                 </ul>
             </div>
+        </div>
+    </section>
+    <section class="section pt-0">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                About the Dataset
+            </h1>
+            <div class="content has-text-justified-desktop">
+                <p>
+                    We build on the synthetic face generation framework of <a href="https://microsoft.github.io/FaceSynthetics/">Wood et al.</a> to create a dataset of <b>over one million</b> synthetic face images.
+                    This synthetics dataset helps us to overcome three primary shortcomings of existing large-scale face recognition datasets:
+                </p>
+                <p>
+                    We define identity as a unique combination of facial geometry, texture, eye color and hair style.
+                    For each identity, we sample a set of accessories including clothing, make-up, glasses, face-wear and head-wear.
+                </p>
+            </div>
             <div class="columns">
                 <div class="column">
-                    <img src="img/diversity.jpg" />
-                    <p>
-                        We vary texture, geometry, hair style, accessories and environment independently, allowing us to generate a wide variety of appearances.
-                    </p>
+                    <img src="img/accessories_id1.jpg" />
                 </div>
-                <div class="column">
-                    <img src="img/variation_for_one.jpg" />
-                    <p>
-                        For the same individual we can generate visually highly diverse imagery.
-                    </p>
+                <div class="column is-hidden-mobile">
+                    <img src="img/accessories_id2.jpg" />
                 </div>
             </div>
             <div class="content has-text-justified-desktop">
                 <p>
-                    The dataset is split into two parts:
+                    While hair style can change for an individual, most people maintain similar hair style (for both facial and head hair) which makes hair style an important cue for the person's identity.
+                    Therefore, for the same identity, we randomize only the color, density and thickness of the hair (top row) and avoiding the impression of changing identity (bottom row).
+                    This simulates aging to some extent as hair typically becomes grayer, sparser and thinner during aging.
+                    The hair style is only changed when the added head-wear is not compatible with the original hair style.
+                </p>
+            </div>
+            <div class="columns">
+                <div class="column" style="padding-right: 0">
+                    <img src="img/hair1.jpg" />
+                </div>
+                <div class="column is-hidden-mobile" style="padding-left: 0">
+                    <img src="img/hair2.jpg" />
+                </div>
+            </div>
+            <div class="content has-text-justified-desktop">
+                <p>
+                    After sampling the identity and the accessories, we can render multiple images by varying the pose, expression, environment (lighting and background) and camera.
+                </p>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <img src="img/variety_id1.jpg" />
+                </div>
+                <div class="column is-hidden-mobile">
+                    <img src="img/variety_id2.jpg" />
+                </div>
+            </div>
+            <div class="content has-text-justified-desktop">
+                <p>
+                    <b>DigiFace-1M</b> is split into two parts:
                     <ul>
                         <li>720K images with 10K identities (72 images per identity). For each identity, 4 different sets of accessories are sampled and 18 images are rendered for each set.</li>
                         <li>500K images with 100K identities (5 images per identity). For each identity, only one set of accessories is sampled.</li>
@@ -177,10 +219,10 @@
             <div class="content has-text-justified-desktop">
                 <p>
                     <a href="https://openaccess.thecvf.com/content/ICCV2021/html/Qiu_SynFace_Face_Recognition_With_Synthetic_Data_ICCV_2021_paper.html">SynFace</a> is the current state-of-the-art for face recognition model trained on synthetic faces.
-                    They used a GAN to generate 500K synthetic faces, with 10K unique identities.
+                    They used <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Deng_Disentangled_and_Controllable_Face_Image_Generation_via_3D_Imitative-Contrastive_Learning_CVPR_2020_paper.pdf">DiscoFaceGAN</a> to generate 500K synthetic faces of 10K unique identities.
                     We significantly outperform SynFace across all datasets, suggesting that our rendered synthetic faces are better than GAN-generated faces for learning face recognition.
                     This is likely because GAN-generated images do not enforce identity or geometric consistency, and are not effective at changing accessories.
-                    The GAN models used also introduce further ethical and bias concerns as they are typically trained on datasets with the same issues highlighted above.
+                    The GAN models also have unresolved ethical and bias concerns as they are typically trained on large-scale real face datasets.
                 </p>
                 <table class="table">
                     <thead>
@@ -231,9 +273,26 @@
             </div>
             <div class="content has-text-justified-desktop">
                 <p>
-                    When compared with the state-of-the-art methods for face recognition using real data we still under-perform significantly, though it is worth noting that these methods use significantly larger datasets.
-                    We suspect that the primary reason for this performance disparity is domain-gap between our synthetic images and real images of faces.
-                    Reducing this domain-gap remains an area of ongoing work for our synthetic data and is likely to result in improved performance for all downstream tasks
+                    When a small number of real face images are available, we can use them to fine-tune the network that is pre-trained on our synthetic data.
+                    Such fine-tuning significantly improves the accuracy across all datasets.
+                </p>
+            </div>
+            <div class="columns">
+                <div class="column has-text-centered">
+                    <img src="img/mix_real_lfw.jpg" />
+                </div>
+                <div class="column is-hidden-mobile has-text-centered">
+                    <img src="img/mix_real_cdp-fp.jpg" />
+                </div>
+                <div class="column is-hidden-mobile has-text-centered">
+                    <img src="img/mix_real_cplfw.jpg" />
+                </div>
+            </div>
+            <div class="content has-text-justified-desktop">
+                <p>
+                    However, there remains a substantial accuracy gap from the state-of-the-art methods that are trained on large-scale real face datasets.
+                    This gap can be reduced by adopting better data augmentation or by improving the realism of the face generation pipeline.
+                    We leave this as future work.
                 </p>
                 <table class="table">
                     <thead>
@@ -307,24 +366,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="content has-text-justified-desktop">
-                <p>
-                    In the case that a small number of real face images are available (e.g., due to ethical issues) we find that training on synthetic data only (black dashed line) performs reliably better than using only this small amount of real data (red line).
-                    If we additionally mix the available real data with our synthetic data (blue line), or pre-train on synthetics and fine-tune on the real data (black line) we find that performance is further improved.
-                </p>
-            </div>
-            <div class="columns">
-                <div class="column has-text-centered">
-                    <img src="img/mix_real_lfw.jpg" />
-                </div>
-                <div class="column is-hidden-mobile has-text-centered">
-                    <img src="img/mix_real_cdp-fp.jpg" />
-                </div>
-                <div class="column is-hidden-mobile has-text-centered">
-                    <img src="img/mix_real_cplfw.jpg" />
-                </div>
-
             </div>
     </section>
     <section class="section pt-0">
