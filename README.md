@@ -19,7 +19,7 @@ For convenience the dataset is split into 8 parts which can be downloaded here: 
 
 ## Dataset Layout
 
-The DigiFace-1M Dataset contains cropped color imagesin the following layout.
+The DigiFace-1M Dataset contains cropped color images in the following layout.
 
 ```
 subj_id_n
