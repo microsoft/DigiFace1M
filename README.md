@@ -11,11 +11,11 @@ The dataset contains:
 - 720K images with 10K identities (72 images per identity). For each identity, 4 different sets of accessories are sampled and 18 images are rendered for each set.
 - 500K images with 100K identities (5 images per identity). For each identity, only one set of accessories is sampled.
 
-The DigiFace-1M dataset can be used for **non-commercial** research, and is licensed under the license found in [LICENSE](LICENSE).
+The DigiFace-1M dataset can be used for **non-commercial** research only, and is licensed under the license found in [LICENSE](LICENSE).
 
 ## Downloading The Dataset
 
-For convenience the dataset is split into 8 parts which can be downloaded here: 
+The full dataset takes 25GB. For convenience the dataset is split into 8 parts which can be downloaded here: 
 
 72 images per identity 
 - [P1](https://facesyntheticspubwedata.blob.core.windows.net/wacv-2023/subjects_0-1999_72_imgs.zip)
