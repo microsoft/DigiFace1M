@@ -4,7 +4,7 @@
 
 The DigiFace-1M dataset is a collection of over one million diverse synthetic face images for face recognition.
 
-It was introduced in our paper [DigiFace-1M: 1 Million Digital Face Images for Face Recognition](https://microsoft.github.com/DigiFace1M) and can be used to train deep learning models for facial recognition.
+It was introduced in our paper [DigiFace-1M: 1 Million Digital Face Images for Face Recognition](https://microsoft.github.io/DigiFace1M) and can be used to train deep learning models for facial recognition.
 
 The dataset contains:
 
@@ -13,7 +13,7 @@ The dataset contains:
 
 The DigiFace-1M dataset can be used for **non-commercial** research, and is licensed under the license found in [LICENSE](LICENSE).
 
-## Downloading The Dataset
+## Downloading the Dataset
 
 For convenience the dataset is split into 8 parts which can be downloaded here: 
 
@@ -31,7 +31,7 @@ For convenience the dataset is split into 8 parts which can be downloaded here:
 
 ## Dataset Layout
 
-The DigiFace-1M Dataset contains cropped color images in the following layout.
+The DigiFace-1M dataset contains cropped color images in the following layout.
 
 ```
 subj_id_n
@@ -48,7 +48,7 @@ Any such similarity is naturally unintentional, as it would be in a dataset of r
 
 ## Citation
 
-If you use the DigiFace-1M dataset in your work, please cite the following [paper](TODO:url):
+If you use the DigiFace-1M dataset in your work, please cite the following [paper](https://https://github.com/microsoft/DigiFace1M/raw/main/paper.pdf):
 
 ```
 @inproceedings{bae2023digiface1m,
