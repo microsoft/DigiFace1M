@@ -48,7 +48,7 @@ Any such similarity is naturally unintentional, as it would be in a dataset of r
 
 ## Citation
 
-If you use the DigiFace-1M dataset in your work, please cite the following [paper](paper.pdf):
+If you use the DigiFace-1M dataset in your work, please cite the following [paper](https://github.com/microsoft/DigiFace1M/raw/main/paper.pdf):
 
 ```
 @inproceedings{bae2023digiface1m,
